@@ -1,0 +1,31 @@
+[user]
+	name = Chris Kelly
+	email = amateurhuman@gmail.com
+
+[github]
+	user = amateurhuman
+
+[push]
+	default = tracking
+
+[credential]
+	helper = osxkeychain
+
+[color]
+  branch = auto
+  diff = auto
+  status = auto
+
+[color "status"]
+  added = green
+  changed = yellow
+  untracked = red
+
+[alias]
+  co  = checkout
+  st  = status -sb
+  ds  = diff --staged
+	cl  = "!tidyclone() { url=$1; path=${url#*://}; dir=${path%.git}; git clone $url $SOURCE/$dir ${@:2}; }; tidyclone"
+  lol = log --pretty=format:"%C(yellow)%h\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s%C(green)\\ [%an]" --decorate --date=short
+  lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
+	undo = reset --soft HEAD^

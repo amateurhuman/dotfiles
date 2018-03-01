@@ -1,0 +1,15 @@
+export GITHUB_HANDLE=amateurhuman
+
+export SOURCE=$HOME/Source
+export GITHUB_SOURCE=$SOURCE/github.com
+export DOTFILES=$GITHUB_SOURCE/$GITHUB_HANDLE/dotfiles
+export ZSH=$DOTFILES/zsh
+
+# Source every config, alias, path file in dotfiles
+for config_file ($DOTFILES/**/*.zsh) source $config_file
+for alias_file ($DOTFILES/**/*.alias) source $alias_file
+for path_file ($DOTFILES/**/*.path) source $path_file
+
+# Initialize autocomplete and load functions
+autoload -U compinit
+compinit
