@@ -1,7 +1,7 @@
 # For logging and output
 RED='\033[0;31m'
 GREEN='\033[1;32m'
-GREY='\033[1;30m'
+GREY='\033[0;37m'
 NOCOLOR='\033[0m'
 
 log()  { echo -e "${NOCOLOR}$*${NOCOLOR}"; }
