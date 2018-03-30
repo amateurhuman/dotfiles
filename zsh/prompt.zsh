@@ -33,7 +33,11 @@ git_dirty() {
   st=$(/usr/bin/git status 2>/dev/null | tail -n 1)
   if [[ $st == "" ]]
   then
-    echo "on %{$fg[yellow]%}$(git_prompt_info)#%{$reset_color%}"
+    staged=$(/usr/bin/git status 2>/dev/null | tail -n 2)
+    if ! [[ $staged == "" ]]
+    then
+      echo "on %{$fg[yellow]%}$(git_prompt_info)#%{$reset_color%}"
+    fi
   else
     if [[ $st == "nothing to commit, working tree clean" ]]
     then
