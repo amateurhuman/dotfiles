@@ -1,4 +1,4 @@
-# @amateurhuman's amateur dotfiles
+# @amateurhuman professional dotfiles
 
 Setup and configuration scripts for building a local development environment on macOS.
 
