@@ -1,0 +1,2 @@
+export PYTHON_PATH=$(python3 -m site --user-base)
+export PATH=$PATH:$PYTHON_PATH/bin
