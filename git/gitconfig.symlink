@@ -1,12 +1,14 @@
 [user]
 	name = Chris Kelly
-	email = amateurhuman@gmail.com
+	email = kelly.c@salesforce.com
+	signingkey = DFBA6CFBCF8094BF
 
 [github]
 	user = amateurhuman
 
 [push]
 	default = tracking
+	gpgsign = if-asked
 
 [credential]
 	helper = osxkeychain
@@ -29,3 +31,7 @@
   lol = log --pretty=format:"%C(yellow)%h\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s%C(green)\\ [%an]" --decorate --date=short
   lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
 	undo = reset --soft HEAD^
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
