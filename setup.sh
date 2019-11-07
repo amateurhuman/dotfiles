@@ -37,4 +37,6 @@ for setup in **/setup.sh; do
 done
 
 # Configure shell
+echo $(which zsh) | sudo tee -a /etc/shells
+chsh -s $(which zsh)
 /bin/zsh -c "source $HOME/.zshrc"
