@@ -1,9 +1,9 @@
 # Homebrew
-tap "caskroom/cask"
+tap "homebrew/cask"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "caskroom/fonts"
-tap "caskroom/versions"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
 brew "cask"
 
 # System & Tools
@@ -16,7 +16,6 @@ brew "openssl"
 brew "gpg"
 brew "readline"
 brew "coreutils"
-brew "heroku"
 cask "keybase"
 brew "postgres"
 brew "direnv"
@@ -36,4 +35,4 @@ brew "nodenv"
 brew "node-build"
 brew "yarn"
 brew "typescript"
-brew "go", args: ["cross-compile-common"]
+brew "go"
