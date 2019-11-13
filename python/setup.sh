@@ -1,16 +1,16 @@
-PACKAGES=( "virtualenv" "virtualenvwrapper" )
+# Install Python versions
+VERSIONS=( "3.8.0" "3.7.5" "pypy3.6-7.1.1" )
+if pyenv --version &>/dev/null; then
+  log "-- Using $(pyenv --version)"
 
-if pip3 --version &>/dev/null; then
-  log "-- Using $(pip3 --version)"
-
-  for package in "${PACKAGES[@]}"; do
-    pip3 show $package &>/dev/null
-    if [ $? -eq 0 ]; then
-      logn "-- $package already installed"
-    else
-      pip3 install $package
-    fi
+  for version in "${VERSIONS[@]}"; do
+    pyenv install $version
   done
-else
-  loge "-- pip3 not installed, skipping setup"
 fi
+pyenv global 3.8.0
+
+# Install pipx for global CLI installs
+pip3 install pipx
+
+# Install Poetry for better virtual environment experience
+pipx install poetry==1.0.0b4
