@@ -1,4 +1,4 @@
-RUBY_VERSIONS=( "2.4.3" "2.5.0" "2.6.5" )
+RUBY_VERSIONS=( "2.6.5" )
 
 if rbenv -v &>/dev/null; then
   log "-- Using $(rbenv -v)"
