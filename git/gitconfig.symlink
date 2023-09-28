@@ -1,37 +1,31 @@
 [user]
-	name = Chris Kelly
-	email = kelly.c@salesforce.com
-	signingkey = DFBA6CFBCF8094BF
-
+  name = Chris Kelly
+  email = amateurhuman@gmail.com
+  signingkey = REPLACEME
 [github]
-	user = amateurhuman
-
+  user = amateurhuman
 [push]
-	default = tracking
-	gpgsign = if-asked
-
+  default = tracking
+[gpg]
+  program = gpg
 [credential]
-	helper = osxkeychain
-
+  helper = osxkeychain
+[commit]
+  gpgsign = true
+[rebase]
+  autosquash = true
 [color]
-  branch = auto
-  diff = auto
-  status = auto
-
+  ui = auto
 [color "status"]
   added = green
   changed = yellow
   untracked = red
-
 [alias]
+  aa = add --all
+  cl  = "!tidyclone() { url=$1; path=${url#*://}; dir=${path%.git}; git clone $url $SOURCE/$dir ${@:2}; }; tidyclone"
   co  = checkout
-  st  = status -sb
   ds  = diff --staged
-	cl  = "!tidyclone() { url=$1; path=${url#*://}; dir=${path%.git}; git clone $url $SOURCE/$dir ${@:2}; }; tidyclone"
   lol = log --pretty=format:"%C(yellow)%h\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s%C(green)\\ [%an]" --decorate --date=short
   lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
-	undo = reset --soft HEAD^
-[commit]
-	gpgsign = true
-[gpg]
-	program = gpg
+  st  = status -sb
+  undo = reset --soft HEAD^
