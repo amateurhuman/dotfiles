@@ -1,5 +1,0 @@
-export PYTHON_PATH=$(python3 -m site --user-base)
-export PATH=$PATH:$PYTHON_PATH/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$PYENV_ROOT/shims
-export PATH=$PATH:$PYENV_ROOT/bin
