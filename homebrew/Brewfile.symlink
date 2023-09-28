@@ -20,6 +20,7 @@ cask "visual-studio-code"
 cask "iterm2"
 cask "postman"
 cask "docker"
+cask "gpg-suite"
 
 # Languages
 brew "asdf"
