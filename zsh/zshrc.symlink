@@ -5,6 +5,8 @@ export GITHUB_SOURCE=$SOURCE/github.com
 export DOTFILES=$GITHUB_SOURCE/$GITHUB_HANDLE/dotfiles
 export ZSH=$DOTFILES/zsh
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Source every config, alias, path file in dotfiles
 for config_file ($DOTFILES/**/*.zsh) source $config_file
 for alias_file ($DOTFILES/**/*.alias) source $alias_file
