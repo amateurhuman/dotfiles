@@ -1,7 +1,7 @@
 [user]
   name = Chris Kelly
   email = amateurhuman@gmail.com
-  signingkey = REPLACEME
+  signingkey = DEFINEME
 [github]
   user = amateurhuman
 [push]
@@ -29,3 +29,5 @@
   lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
   st  = status -sb
   undo = reset --soft HEAD^
+[init]
+  defaultBranch = main

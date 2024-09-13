@@ -1,9 +1,6 @@
 # Homebrew
-tap "homebrew/cask"
 tap "homebrew/bundle"
 tap "homebrew/services"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 brew "cask"
 
 # System & Tools
@@ -16,6 +13,7 @@ brew "gpg"
 brew "readline"
 brew "coreutils"
 brew "direnv"
+brew "gh"
 cask "visual-studio-code"
 cask "iterm2"
 cask "postman"
@@ -24,4 +22,3 @@ cask "gpg-suite"
 
 # Languages
 brew "asdf"
-brew "pnpm"
