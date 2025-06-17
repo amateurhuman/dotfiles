@@ -125,6 +125,15 @@ install_configs () {
 install_dotfiles
 install_configs
 
+# Install packages from Brewfile
+info "installing packages from Brewfile"
+if [ -f "$HOME/.Brewfile" ]; then
+  brew bundle check --global || brew bundle --global
+  success "Brewfile packages installed"
+else
+  fail "No Brewfile found at $HOME/.Brewfile"
+fi
+
 # find the installers and run them iteratively
 info "installing dependencies"
 if [ "$(uname -s)" == "Darwin" ]
