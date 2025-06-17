@@ -4,23 +4,34 @@ Professional dotfiles for building a modern macOS development environment with o
 
 ## Quick Installation
 
-### One-Command Setup (Recommended)
+### Fresh macOS System (3 Steps)
 
-Clone to the standard location and set up symlinks automatically:
-
+**1. Clone Dotfiles:**
 ```bash
 curl https://raw.githubusercontent.com/amateurhuman/dotfiles/main/script/clone | bash
 ```
 
-Then run the installation:
+**2. Setup System (first time only):**
+```bash
+~/.dotfiles/script/setup
+```
+
+**3. Install Everything:**
+```bash
+~/.dotfiles/script/install
+```
+
+### Alternative: Existing Systems
+
+If your system already has Homebrew and development tools:
 
 ```bash
-~/.dotfiles/script/bootstrap
+git clone https://github.com/amateurhuman/dotfiles.git ~/.dotfiles && ~/.dotfiles/script/install
 ```
 
 ## How it works
 
-Bootstrapping a new system will perform the following steps:
+Installing the dotfiles will perform the following steps:
 
 - `*.symlink` files are linked into your home directory (Brewfile.symlink → ~/.Brewfile)
 - `config/` directory is linked to `~/.config` for XDG-compliant tool configurations
@@ -46,9 +57,9 @@ After installation, the dotfiles setup follows these conventions:
 ```
 dotfiles/
 ├── script/
-│   ├── clone             # Start here to clone repository
-│   ├── bootstrap         # Main installation script
-│   ├── install           # Run all install.sh scripts without bootstrap
+│   ├── setup             # System preparation (first time only)
+│   ├── clone             # Clone repository to standard location
+│   ├── install           # Main installation script
 │   └── update            # Update dotfiles and packages
 ├── bin/                  # Custom executables
 ├── functions/            # Shell functions
