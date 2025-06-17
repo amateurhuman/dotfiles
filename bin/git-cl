@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# git cl - Clone repository to organized directory structure
+#
+# Usage: git cl <repository-url> [additional-clone-args...]
+#
+# Clones a repository into $SOURCE organized by hostname/user/repo
+# Example: git cl https://github.com/user/repo.git
+# Results in: ~/Source/github.com/user/repo
+#
+
+set -e
+
+if [ $# -eq 0 ]; then
+  echo "Usage: git cl <repository-url> [additional-clone-args...]"
+  echo "Example: git cl https://github.com/user/repo.git"
+  exit 1
+fi
+
+# Get the URL and additional arguments
+url=$1
+shift
+
+# Remove protocol and .git suffix, then organize path
+path=${url#*://}
+dir=${path%.git}
+
+# Use SOURCE environment variable, fallback to ~/Source
+source_dir=${SOURCE:-$HOME/Source}
+
+# Create the target directory path
+target_dir="$source_dir/$dir"
+
+echo "Cloning $url into $target_dir"
+
+# Clone with any additional arguments passed
+git clone "$url" "$target_dir" "$@"
+
+echo "Clone successful, to go to the directory:"
+echo "g $dir"

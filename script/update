@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+#
+# Update dotfiles and packages
+#
+
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd -P)
+
+set -e
+
+echo ''
+echo '  Updating dotfiles...'
+
+# Update the repository
+echo '  Pulling latest changes...'
+git pull origin main
+
+# Update Homebrew and packages
+echo '  Updating Homebrew packages...'
+brew update
+brew upgrade
+brew bundle check --global || brew bundle --global
+brew cleanup
+
+# Update mise and language versions
+echo '  Updating language runtimes...'
+if command -v mise &> /dev/null; then
+  mise self-update
+  mise upgrade
+fi
+
+echo ''
+echo '  Update complete! Restart your shell or run "reloadsh" to apply changes.'

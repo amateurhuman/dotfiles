@@ -1,6 +1,6 @@
 [user]
   name = Chris Kelly
-	email = chris@augmentcode.com
+	email = chris@amateurhuman.com
   signingkey = DEFINEME
 [core]
   pager = delta
@@ -19,7 +19,7 @@
 [commit]
   gpgsign = false
 [merge]
-    conflictstyle = zdiff3
+  conflictstyle = zdiff3
 [rebase]
   autosquash = true
 [color]
@@ -30,14 +30,14 @@
   untracked = red
 [alias]
   aa = add --all
-  cl  = "!tidyclone() { url=$1; path=${url#*://}; dir=${path%.git}; git clone $url $SOURCE/$dir ${@:2}; }; tidyclone"
   co  = checkout
+  st  = status -sb
   ds  = diff --staged
   lol = log --pretty=format:"%C(yellow)%h\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s%C(green)\\ [%an]" --decorate --date=short
   lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
-  st  = status -sb
-  undo = reset --soft HEAD^
-  absorb = "!sh -c 'CURRENT=$(git rev-parse HEAD); REMOTE=$(git rev-parse @{u} 2>/dev/null || echo \"\"); if [ \"$REMOTE\" = \"$CURRENT\" ]; then read -p \"This commit exists on remote and will require force push. Continue? [y/N] \" confirm; if [ \"$confirm\" = \"y\" ] || [ \"$confirm\" = \"Y\" ]; then git commit --amend --no-edit; else echo \"Aborting amend\"; exit 1; fi; else git commit --amend --no-edit; fi'"
+  amend = commit --amend --no-edit
+  uncommit = reset --soft HEAD^
+  unstage = reset HEAD
 [init]
   defaultBranch = main
 [delta]

@@ -1,0 +1,1 @@
+# mise is activated in zshrc.symlink via eval "$(mise activate zsh)"

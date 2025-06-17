@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# git absorb - Safely amend commits with confirmation for pushed commits
+#
+# Usage: git absorb
+#
+# This command amends the current commit but prompts for confirmation
+# if the commit exists on the remote (requires force push).
+#
+
+set -e
+
+# Get current commit and remote commit
+CURRENT=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse @{u} 2>/dev/null || echo "")
+
+if [ "$REMOTE" = "$CURRENT" ]; then
+  # Commit exists on remote, requires force push
+  printf "This commit exists on remote and will require force push. Continue? [y/N] "
+  read -r confirm
+  
+  if [ "$confirm" = "y" ] || [ "$confirm" = "Y" ]; then
+    git commit --amend --no-edit
+    echo "Commit amended. You'll need to force push: git push --force-with-lease"
+  else
+    echo "Aborting amend"
+    exit 1
+  fi
+else
+  # Safe to amend
+  git commit --amend --no-edit
+  echo "Commit amended successfully"
+fi

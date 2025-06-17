@@ -1,0 +1,8 @@
+# Ignore all files except for those explicitly listed
+# to prevent accidental credential leakage
+*/
+!gh/
+!ghostty/
+!mise/
+!nvim/
+!zed/

@@ -1,12 +1,18 @@
-# Check if asdf is installed
-if ! command -v asdf &> /dev/null; then
-  echo "Error: asdf is not installed. Please install asdf first."
+#!/bin/sh
+#
+# Go setup
+#
+
+echo "  Setting up Go..."
+
+# Check if mise is installed
+if ! command -v mise &> /dev/null; then
+  echo "    Error: mise is not installed. Please install mise first."
   exit 1
 fi
 
-# Install Go using asdf
-asdf plugin add golang
-asdf install golang latest
-asdf global golang latest
+# Install Go using mise
+echo "    Installing Go via mise..."
+mise use --global go@latest
 
-source $HOME/.asdf/plugins/golang/set-env.zsh
+echo "  Go setup complete"
