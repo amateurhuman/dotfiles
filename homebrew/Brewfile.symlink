@@ -14,11 +14,13 @@ brew "readline"
 brew "coreutils"
 brew "direnv"
 brew "gh"
+brew "jq"
 cask "visual-studio-code"
 cask "iterm2"
 cask "postman"
 cask "docker"
 cask "gpg-suite"
+cask "cleanshot"
 
 # Languages
 brew "asdf"

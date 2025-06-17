@@ -4,5 +4,4 @@ alias ll='ls -l'
 alias la='ls -A'
 alias lf='ls | grep -v ^d'
 alias ld='ls -ld */'
-
 alias reloadsh='source ~/.zshrc'

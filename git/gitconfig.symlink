@@ -1,7 +1,13 @@
 [user]
   name = Chris Kelly
-  email = amateurhuman@gmail.com
+	email = chris@augmentcode.com
   signingkey = DEFINEME
+[core]
+  pager = delta
+[include]
+  path = ~/Source/github.com/dandavison/delta/themes.gitconfig
+[interactive]
+    diffFilter = delta --color-only
 [github]
   user = amateurhuman
 [push]
@@ -11,7 +17,9 @@
 [credential]
   helper = osxkeychain
 [commit]
-  gpgsign = true
+  gpgsign = false
+[merge]
+    conflictstyle = zdiff3
 [rebase]
   autosquash = true
 [color]
@@ -29,5 +37,16 @@
   lls = log --pretty=format:"%C(yellow)%h\\ %C(green)%<(20,trunc)%cn\\ %C(blue)%ad%C(red)%d\\ %C(reset)%s" --date=short --decorate
   st  = status -sb
   undo = reset --soft HEAD^
+  absorb = "!sh -c 'CURRENT=$(git rev-parse HEAD); REMOTE=$(git rev-parse @{u} 2>/dev/null || echo \"\"); if [ \"$REMOTE\" = \"$CURRENT\" ]; then read -p \"This commit exists on remote and will require force push. Continue? [y/N] \" confirm; if [ \"$confirm\" = \"y\" ] || [ \"$confirm\" = \"Y\" ]; then git commit --amend --no-edit; else echo \"Aborting amend\"; exit 1; fi; else git commit --amend --no-edit; fi'"
 [init]
   defaultBranch = main
+[delta]
+  dark = true
+  features = arctic-fox
+  navigate = true
+  line-numbers = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

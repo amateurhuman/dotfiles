@@ -21,6 +21,15 @@ for symlink in **/*.symlink; do
   fi
 done
 
+# Install homebrew
+logs "Installing Homebrew"
+if ! command -v brew &> /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+  logs "-- Homebrew already installed"
+fi
+
+
 # Install packages from Brewfile
 logs "Installing packages from Homebrew"
 if [ -f "$HOME/.Brewfile" ]; then
