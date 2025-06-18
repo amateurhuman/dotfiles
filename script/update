@@ -19,7 +19,6 @@ git pull origin main
 echo '  Updating Homebrew packages...'
 brew update
 brew upgrade
-brew bundle check --global || brew bundle --global
 brew cleanup
 
 echo ''
