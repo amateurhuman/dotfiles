@@ -1,2 +1,8 @@
 [settings]
 legacy_version_file = true
+
+[tools]
+go = "latest"
+node = "lts"
+python = "latest"
+ruby = "latest"
