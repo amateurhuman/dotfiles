@@ -1,1 +1,3 @@
+#autoload
+
 cd $GITHUB_SOURCE/$1
