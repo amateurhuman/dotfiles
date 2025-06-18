@@ -1,7 +1,8 @@
-alias ls='ls -Fhal'
-alias l='ls -lAh'
-alias ll='ls -l'
-alias la='ls -A'
-alias lf='ls | grep -v ^d'
-alias ld='ls -ld */'
+alias ls='eza'
+alias l='eza -lAhF'
+alias lf='eza -lAhF | grep -v ^d'
+alias ld='eza -ld *'
+
+alias cat='bat'
+
 alias reloadsh='source ~/.zshrc'

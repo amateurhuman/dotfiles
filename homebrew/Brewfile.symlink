@@ -20,9 +20,7 @@ brew "fd"
 brew "bat"
 brew "eza"
 brew "fzf"
-brew "delta"
-brew "git-lfs"
-brew "tldr"
+brew "git-delta"
 brew "tree"
 
 # Applications
@@ -37,3 +35,4 @@ cask "cleanshot"
 # Languages and dependencies
 brew "mise"
 brew "libyaml"
+brew "uv"
