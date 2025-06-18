@@ -11,6 +11,12 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
+# Check if running as root
+if [ "$USER" = "root" ]; then
+  echo "Don't run this script as root - run as your regular user"
+  exit 1
+fi
+
 # Color output
 RED='\033[0;31m'
 GREEN='\033[1;32m'
