@@ -133,8 +133,25 @@ install_configs
 
 # Install packages from Brewfile
 info "installing packages from Brewfile"
+
+# Find and setup Homebrew
+BREW_PATH=""
+if command -v brew >/dev/null 2>&1; then
+  BREW_PATH="brew"
+elif [ -f "/opt/homebrew/bin/brew" ]; then
+  # Apple Silicon Mac
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+  BREW_PATH="/opt/homebrew/bin/brew"
+elif [ -f "/usr/local/bin/brew" ]; then
+  # Intel Mac
+  eval "$(/usr/local/bin/brew shellenv)"
+  BREW_PATH="/usr/local/bin/brew"
+else
+  fail "Homebrew not found. Please run script/bootstrap first."
+fi
+
 if [ -f "$HOME/.Brewfile" ]; then
-  brew bundle check --global || brew bundle --global
+  $BREW_PATH bundle check --global || $BREW_PATH bundle --global
   success "Brewfile packages installed"
 else
   fail "No Brewfile found at $HOME/.Brewfile"
@@ -144,7 +161,11 @@ fi
 info "installing dependencies"
 if [ "$(uname -s)" == "Darwin" ]
 then
-  find . -name install.sh | while read installer ; do info "running ${installer}" ; sh -c "${installer}" ; done
+  find . -name install.sh | while read installer ; do 
+    info "running ${installer}"
+    chmod +x "${installer}"
+    sh -c "${installer}"
+  done
 fi
 
 echo ''

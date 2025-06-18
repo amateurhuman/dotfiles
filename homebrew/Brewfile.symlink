@@ -1,6 +1,4 @@
 # Homebrew
-tap "homebrew/bundle"
-tap "homebrew/services"
 brew "cask"
 
 # System & Tools
