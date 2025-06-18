@@ -1,5 +1,5 @@
-alias ls='eza'
-alias l='eza -lAhF'
+alias ls='eza -lAF'
+alias l='eza -lAF'
 alias lf='eza -lAhF | grep -v ^d'
 alias ld='eza -ld *'
 
