@@ -1,7 +1,7 @@
 # Homebrew
 brew "cask"
 
-# System & Tools
+# System tools
 brew "mas"
 brew "git"
 brew "zsh"
@@ -24,6 +24,8 @@ brew "delta"
 brew "git-lfs"
 brew "tldr"
 brew "tree"
+
+# Applications
 cask "visual-studio-code"
 cask "ghostty"
 cask "zed"
@@ -32,5 +34,6 @@ cask "docker"
 cask "gpg-suite"
 cask "cleanshot"
 
-# Languages
+# Languages and dependencies
 brew "mise"
+brew "libyaml"

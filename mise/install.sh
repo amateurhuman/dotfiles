@@ -17,7 +17,8 @@ echo "    mise is available"
 
 # Find and execute all mise.sh scripts for language setup
 echo "    Installing programming languages..."
-for mise_script in ../*/mise.sh; do
+cd "$(dirname "$0")/.."
+for mise_script in */mise.sh; do
   if [ -f "$mise_script" ]; then
     language=$(basename "$(dirname "$mise_script")")
     echo "      Setting up $language..."
