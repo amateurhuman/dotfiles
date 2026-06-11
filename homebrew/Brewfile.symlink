@@ -23,4 +23,4 @@ cask "gpg-suite"
 cask "cleanshot"
 
 # Languages
-brew "asdf"
+brew "mise"

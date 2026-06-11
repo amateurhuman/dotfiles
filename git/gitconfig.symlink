@@ -38,6 +38,10 @@
   st  = status -sb
   undo = reset --soft HEAD^
   absorb = "!sh -c 'CURRENT=$(git rev-parse HEAD); REMOTE=$(git rev-parse @{u} 2>/dev/null || echo \"\"); if [ \"$REMOTE\" = \"$CURRENT\" ]; then read -p \"This commit exists on remote and will require force push. Continue? [y/N] \" confirm; if [ \"$confirm\" = \"y\" ] || [ \"$confirm\" = \"Y\" ]; then git commit --amend --no-edit; else echo \"Aborting amend\"; exit 1; fi; else git commit --amend --no-edit; fi'"
+  squash = "!squash() { \
+        first=$(git rev-list --reverse $(git merge-base origin/main HEAD)..HEAD | head -n1); \
+        git rebase -i --autosquash ${first}^; \
+    }; squash"
 [init]
   defaultBranch = main
 [delta]

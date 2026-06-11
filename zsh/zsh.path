@@ -1,1 +1,1 @@
-export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:/Users/chris/.local/bin:$PATH"
